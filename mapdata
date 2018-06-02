@@ -1,0 +1,693 @@
+{
+  "viewport": {
+    "zoom": 15,
+    "lat": 6.009033981992086,
+    "lng": 116.69155403989157
+  },
+  "name": "",
+  "classmodel": [
+    {
+      "name": "Ill\u00e9gal deforestation",
+      "color": "d63000"
+    },
+    {
+      "name": "deforestation of the current year",
+      "color": "ffbc00"
+    },
+    {
+      "name": "Zone bois\u00e9es Dec 2000 (ref)",
+      "color": "03ff00"
+    },
+    {
+      "name": "Protected Parks",
+      "color": "d6d6d6"
+    }
+  ],
+  "polylayers": [
+    {
+      "title": "TamanNegara Gunung Kinabalu National Park",
+      "originaltitle": "Hand-drawn points and polygons",
+      "overlayvisible": false,
+      "layermode": "advisory-mode",
+      "datatype": "handdrawn"
+    }
+  ],
+  "datalayers": [
+    {
+      "title": "Computed layer: Apply Mask",
+      "originaltitle": null,
+      "overlayvisible": true,
+      "vis": {
+        "opacity": 0.7000000000000001,
+        "bands": [
+          "treecover2000"
+        ],
+        "gamma": 1,
+        "format": "png"
+      },
+      "layermode": "advisory-mode",
+      "datatype": "computed",
+      "computations": [
+        {
+          "title": "1. Apply Mask",
+          "operation": "ApplyMask",
+          "layer": {
+            "image": {
+              "type": "CompoundValue",
+              "scope": [
+                [
+                  "0",
+                  {
+                    "type": "Invocation",
+                    "arguments": {
+                      "id": "UMD/hansen/global_forest_change_2016_v1_4"
+                    },
+                    "functionName": "Image.load"
+                  }
+                ],
+                [
+                  "1",
+                  [
+                    "treecover2000"
+                  ]
+                ],
+                [
+                  "2",
+                  {
+                    "type": "Invocation",
+                    "arguments": {
+                      "input": {
+                        "type": "ValueRef",
+                        "value": "0"
+                      },
+                      "bandSelectors": {
+                        "type": "ValueRef",
+                        "value": "1"
+                      }
+                    },
+                    "functionName": "Image.select"
+                  }
+                ],
+                [
+                  "3",
+                  [
+                    "loss"
+                  ]
+                ],
+                [
+                  "4",
+                  {
+                    "type": "Invocation",
+                    "arguments": {
+                      "input": {
+                        "type": "ValueRef",
+                        "value": "0"
+                      },
+                      "bandSelectors": {
+                        "type": "ValueRef",
+                        "value": "3"
+                      }
+                    },
+                    "functionName": "Image.select"
+                  }
+                ],
+                [
+                  "5",
+                  {
+                    "type": "Invocation",
+                    "arguments": {
+                      "image": {
+                        "type": "ValueRef",
+                        "value": "2"
+                      },
+                      "mask": {
+                        "type": "ValueRef",
+                        "value": "4"
+                      }
+                    },
+                    "functionName": "Image.mask"
+                  }
+                ]
+              ],
+              "value": {
+                "type": "ValueRef",
+                "value": "5"
+              }
+            },
+            "bands": [
+              "treecover2000"
+            ],
+            "title": "deforestation of the current year"
+          },
+          "type": "polygon",
+          "mask": {
+            "type": "Polygon",
+            "coordinates": [
+              [
+                [
+                  116.67522072490783,
+                  6.015890163222888
+                ],
+                [
+                  116.67539238628478,
+                  6.0131587001220055
+                ],
+                [
+                  116.6680109470758,
+                  6.000866946512817
+                ],
+                [
+                  116.66852593120666,
+                  5.99728179946903
+                ],
+                [
+                  116.67127251323791,
+                  5.995233133433151
+                ],
+                [
+                  116.68431877788635,
+                  5.993355182808811
+                ],
+                [
+                  116.68861031231017,
+                  6.0095736339869354
+                ],
+                [
+                  116.69650673565002,
+                  6.003598471290393
+                ],
+                [
+                  116.70148491558166,
+                  6.015890163222888
+                ],
+                [
+                  116.69324516948791,
+                  6.0162315951457375
+                ],
+                [
+                  116.68929695781799,
+                  6.022035905016467
+                ],
+                [
+                  116.67367577251525,
+                  6.018280182179374
+                ]
+              ]
+            ],
+            "evenOdd": true
+          }
+        }
+      ]
+    },
+    {
+      "title": "Ill\u00e9gal deforestation 1",
+      "originaltitle": "Computed layer: Extract Mask",
+      "overlayvisible": true,
+      "vis": {
+        "opacity": 0.64,
+        "bands": [
+          "treecover2000"
+        ],
+        "gamma": 1,
+        "format": "png"
+      },
+      "layermode": "advisory-mode",
+      "datatype": "computed",
+      "computations": [
+        {
+          "title": "1. Extract Mask",
+          "operation": "ExtractMask",
+          "layer": {
+            "image": {
+              "type": "CompoundValue",
+              "scope": [
+                [
+                  "0",
+                  {
+                    "type": "Invocation",
+                    "arguments": {
+                      "id": "UMD/hansen/global_forest_change_2016_v1_4"
+                    },
+                    "functionName": "Image.load"
+                  }
+                ],
+                [
+                  "1",
+                  [
+                    "treecover2000"
+                  ]
+                ],
+                [
+                  "2",
+                  {
+                    "type": "Invocation",
+                    "arguments": {
+                      "input": {
+                        "type": "ValueRef",
+                        "value": "0"
+                      },
+                      "bandSelectors": {
+                        "type": "ValueRef",
+                        "value": "1"
+                      }
+                    },
+                    "functionName": "Image.select"
+                  }
+                ],
+                [
+                  "3",
+                  [
+                    "loss"
+                  ]
+                ],
+                [
+                  "4",
+                  {
+                    "type": "Invocation",
+                    "arguments": {
+                      "input": {
+                        "type": "ValueRef",
+                        "value": "0"
+                      },
+                      "bandSelectors": {
+                        "type": "ValueRef",
+                        "value": "3"
+                      }
+                    },
+                    "functionName": "Image.select"
+                  }
+                ],
+                [
+                  "5",
+                  {
+                    "type": "Invocation",
+                    "arguments": {
+                      "image": {
+                        "type": "ValueRef",
+                        "value": "2"
+                      },
+                      "mask": {
+                        "type": "ValueRef",
+                        "value": "4"
+                      }
+                    },
+                    "functionName": "Image.mask"
+                  }
+                ]
+              ],
+              "value": {
+                "type": "ValueRef",
+                "value": "5"
+              }
+            },
+            "bands": [
+              "treecover2000"
+            ],
+            "title": "deforestation of the current year"
+          }
+        },
+        {
+          "title": "2. Apply Mask",
+          "operation": "ApplyMask",
+          "layer": {
+            "image": 0,
+            "bands": [
+              "treecover2000"
+            ],
+            "title": "1. Extract Mask"
+          },
+          "type": "polygon",
+          "mask": {
+            "type": "Polygon",
+            "coordinates": [
+              [
+                [
+                  116.61159399529333,
+                  6.394903378587639
+                ],
+                [
+                  116.63047674675818,
+                  6.388420793209151
+                ],
+                [
+                  116.61605719109411,
+                  6.328367688413193
+                ],
+                [
+                  116.65313604851599,
+                  6.323590436282612
+                ],
+                [
+                  116.66000250359411,
+                  6.298338513938461
+                ],
+                [
+                  116.62773016472693,
+                  6.296973510124578
+                ],
+                [
+                  116.61056402703161,
+                  6.251243813465049
+                ],
+                [
+                  116.65588263054724,
+                  6.245100713137222
+                ],
+                [
+                  116.62498358269568,
+                  6.167964564864833
+                ],
+                [
+                  116.53777960320349,
+                  6.207557980923996
+                ],
+                [
+                  116.55563238640661,
+                  6.159089772173688
+                ],
+                [
+                  116.48559454460974,
+                  6.12222366315205
+                ],
+                [
+                  116.49040106316443,
+                  6.094231028315361
+                ],
+                [
+                  116.53640631218786,
+                  6.046435353726081
+                ],
+                [
+                  116.53365973015661,
+                  6.012292998347069
+                ],
+                [
+                  116.57417181511755,
+                  5.997952569375993
+                ],
+                [
+                  116.60507086296911,
+                  6.040972721364237
+                ],
+                [
+                  116.70188787957068,
+                  6.040289888442612
+                ],
+                [
+                  116.73553350945349,
+                  6.069650925226824
+                ],
+                [
+                  116.71012762566443,
+                  6.088768880318942
+                ],
+                [
+                  116.7472064830863,
+                  6.113348108167646
+                ],
+                [
+                  116.75338629265661,
+                  6.269672681286395
+                ],
+                [
+                  116.70806768914099,
+                  6.267625061430215
+                ],
+                [
+                  116.71287420769568,
+                  6.2928784771551305
+                ],
+                [
+                  116.68609503289099,
+                  6.295608502722203
+                ],
+                [
+                  116.70806768914099,
+                  6.349523559261849
+                ],
+                [
+                  116.67064550896521,
+                  6.359077538775277
+                ],
+                [
+                  116.66892889519568,
+                  6.423221076057389
+                ],
+                [
+                  116.61331060906286,
+                  6.43823222893064
+                ]
+              ]
+            ],
+            "evenOdd": true
+          }
+        }
+      ]
+    },
+    {
+      "title": "deforestation of the current year",
+      "originaltitle": "Computed layer: Apply Mask",
+      "overlayvisible": true,
+      "vis": {
+        "opacity": 0.6,
+        "bands": [
+          "treecover2000"
+        ],
+        "min": 3.7800000000000002,
+        "max": 89.22,
+        "palette": [
+          "ff5e00"
+        ],
+        "format": "png"
+      },
+      "layermode": "input-mode",
+      "datatype": "computed",
+      "computations": [
+        {
+          "title": "1. Apply Mask",
+          "operation": "ApplyMask",
+          "layer": {
+            "image": {
+              "type": "Invocation",
+              "arguments": {
+                "id": "UMD/hansen/global_forest_change_2016_v1_4"
+              },
+              "functionName": "Image.load"
+            },
+            "bands": [
+              "treecover2000"
+            ],
+            "title": "Hansen Global Forest Change v1.4 (2000-2016)"
+          },
+          "type": "raster",
+          "mask": {
+            "image": {
+              "type": "Invocation",
+              "arguments": {
+                "id": "UMD/hansen/global_forest_change_2016_v1_4"
+              },
+              "functionName": "Image.load"
+            },
+            "bands": [
+              "loss"
+            ],
+            "title": "Hansen Global Forest Change v1.4 (2000-2016)"
+          }
+        }
+      ]
+    },
+    {
+      "title": "Hansen Global Forest Change v1.4 (2000-2016)",
+      "originaltitle": null,
+      "overlayvisible": false,
+      "vis": {
+        "opacity": 0.68,
+        "bands": [
+          "loss"
+        ],
+        "min": 50,
+        "max": 100,
+        "gamma": 10
+      },
+      "layermode": "input-mode",
+      "datatype": "image",
+      "assetid": "UMD/hansen/global_forest_change_2016_v1_4"
+    },
+    {
+      "title": "Population d'arbres au 1er Janvier 2000",
+      "originaltitle": "Hansen Global Forest Change v1.4 (2000-2016)",
+      "overlayvisible": false,
+      "vis": {
+        "opacity": 0.61,
+        "bands": [
+          "treecover2000"
+        ],
+        "min": 8.700000000000001,
+        "max": 78.3,
+        "gamma": 0.637
+      },
+      "layermode": "input-mode",
+      "datatype": "image",
+      "assetid": "UMD/hansen/global_forest_change_2016_v1_4"
+    }
+  ],
+  "drawnpoints": [
+    [],
+    [],
+    [],
+    []
+  ],
+  "drawnpolys": [
+    [],
+    [],
+    [
+      {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              116.53809673518504,
+              6.207041775457677
+            ],
+            [
+              116.55526285229757,
+              6.159768167574365
+            ],
+            [
+              116.54788145044984,
+              6.154989362412291
+            ],
+            [
+              116.48728486634536,
+              6.123243371447442
+            ],
+            [
+              116.48110504507451,
+              6.120171080327262
+            ],
+            [
+              116.49071810163161,
+              6.096616264875849
+            ],
+            [
+              116.53741008669283,
+              6.047455063289125
+            ],
+            [
+              116.53432017708587,
+              6.013312707566937
+            ],
+            [
+              116.57517566191245,
+              6.000338050856775
+            ],
+            [
+              116.60504479727774,
+              6.040968182406424
+            ],
+            [
+              116.70220532034955,
+              6.041651015037857
+            ],
+            [
+              116.73653085754756,
+              6.069981071915772
+            ],
+            [
+              116.7221112750758,
+              6.090123210406
+            ],
+            [
+              116.71095326430896,
+              6.090293903569102
+            ],
+            [
+              116.74774826005955,
+              6.1143458237965245
+            ],
+            [
+              116.75358476410292,
+              6.269262666534538
+            ],
+            [
+              116.7089527184695,
+              6.268238856211167
+            ],
+            [
+              116.71272927684447,
+              6.293833545973298
+            ],
+            [
+              116.68766692257418,
+              6.297587444633192
+            ],
+            [
+              116.69195820965342,
+              6.3115784582932175
+            ],
+            [
+              116.7075794267563,
+              6.349454984410057
+            ],
+            [
+              116.67084381919449,
+              6.360032617198143
+            ],
+            [
+              116.66878387936538,
+              6.424517330646154
+            ],
+            [
+              116.61419545783986,
+              6.437481528187287
+            ],
+            [
+              116.61247883654619,
+              6.394834860012667
+            ],
+            [
+              116.63067681994028,
+              6.388010344647121
+            ],
+            [
+              116.61745903621784,
+              6.329321543021982
+            ],
+            [
+              116.65814085505622,
+              6.322498101194867
+            ],
+            [
+              116.65505094062235,
+              6.304753564531652
+            ],
+            [
+              116.622778538067,
+              6.297928580552235
+            ],
+            [
+              116.61144887118894,
+              6.252198865821557
+            ],
+            [
+              116.6567675378061,
+              6.245373205452565
+            ],
+            [
+              116.6250101335836,
+              6.168236957776762
+            ],
+            [
+              116.55205391368418,
+              6.201004169647312
+            ]
+          ]
+        ],
+        "geodesic": true,
+        "evenOdd": true
+      }
+    ],
+    []
+  ],
+  "analysis": null
+}
