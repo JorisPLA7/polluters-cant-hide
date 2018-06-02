@@ -3,6 +3,14 @@ body {
   padding-bottom: 20px;
 }
 
+input [type="text"] {
+  width = 2em;
+}
+
+li [class="sidebar-brand"] {
+  margin-bottom:  300px;
+}
+
 .dropdown-toggle {
   padding: 0px;
 }
